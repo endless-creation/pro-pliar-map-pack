@@ -23,8 +23,8 @@ jobs:
         echo "## Pro Pliar Map Packs" > release_note.txt
         echo "" >> release_note.txt
         echo "Download the map pack you want to use:" >> release_note.txt
-        echo "- [Select Map Pack](https://github.com/username/repo/releases/download/${{ github.ref }}/pro_pliar_select_map_pack.zip)" >> release_note.txt
-        echo "- [Complete Map Pack (includes Select maps)](https://github.com/username/repo/releases/download/${{ github.ref }}/pro_pliar_complete_map_pack.zip)" >> release_note.txt
+        echo "- [Select Map Pack](https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/pro_pliar_select_map_pack.zip)" >> release_note.txt
+        echo "- [Complete Map Pack (includes Select maps)](https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/pro_pliar_complete_map_pack.zip)" >> release_note.txt
     - name: Save release files
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
