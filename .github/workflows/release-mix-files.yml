@@ -16,15 +16,15 @@ jobs:
     - uses: actions/checkout@v3
     - name: Zip map files
       run: |
-        zip ./pro_pliar_select_map_pack.zip ./maps/select/*.map
-        zip ./pro_pliar_complete_map_pack.zip ./maps/select/*.map ./maps/general/*.map
+        zip -j ./pro_pliar_select_map_pack.zip ./maps/select/*.map
+        zip -j ./pro_pliar_complete_map_pack.zip ./maps/select/*.map ./maps/general/*.map
     - name: Generate Release Note
       run: |
         echo "## Pro Pliar Map Packs" > release_note.txt
         echo "" >> release_note.txt
         echo "Download the map pack you want to use:" >> release_note.txt
-        echo "- [Select Map Pack](https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/pro_pliar_select_map_pack.zip)" >> release_note.txt
-        echo "- [Complete Map Pack (includes Select maps)](https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/pro_pliar_complete_map_pack.zip)" >> release_note.txt
+        echo "- Select Map Pack (top selected maps by pro pliars) [[download](https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/pro_pliar_select_map_pack.zip)]" >> release_note.txt
+        echo "- Complete Map Pack (includes Select maps) [[download](https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/pro_pliar_complete_map_pack.zip)]" >> release_note.txt
     - name: Save release files
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
